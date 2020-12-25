@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} MY SITE | ALL_COURSES {% endblock %}
+{% block content %}
+    <h1>Data schemas          <a href=" http://127.0.0.1:8000/save" class="btn btn-primary" style="margin-left: 275px">New schemas</a></h1>
+
+{% for course in courses %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Ful name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{course.id}}</th>
+      <td>{{course.job }}</td>
+
+        <td>{{course.date }}</td>
+        <td>{{course.ful_name }}</td>
+        <td>{{course.email }}</td>
+        <td>{{course.phone }}</td>
+    </tr>
+
+  </tbody>
+</table>
+ {% endfor %}
+{% endblock %}
