@@ -5,6 +5,9 @@ from .form import LoginForm, Save_Schemas_Form
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from django.contrib.auth.models import User
 from .models import DataModel
+from .serializers import Data_Serializers
+from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView, UpdateAPIView
+from rest_framework.mixins import ListModelMixin
 import csv
 
 Users = get_user_model()
@@ -66,3 +69,9 @@ def export(request):
     response['Content-Disposition'] = 'attachment; filename="schemas.csv"'
 
     return response
+
+
+class CreateVieAll(RetrieveUpdateDestroyAPIView):
+    serializer_class = Data_Serializers
+    queryset = DataModel.objects.all()
+

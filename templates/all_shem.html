@@ -24,9 +24,12 @@
         <td>{{course.ful_name }}</td>
         <td>{{course.email }}</td>
         <td>{{course.phone }}</td>
+        {% if course.photo %}
+            <img src="{{ MEDIA_URL }}{{course.photo.url }}" class="card-img-top" alt="{{course.ful_name}}">
+        {% endif %}
     </tr>
-
   </tbody>
 </table>
+     <a href=" http://127.0.0.1:8000/alls/{{ course.id }}" class="btn btn-primary">edit</a>
  {% endfor %}
 {% endblock %}
